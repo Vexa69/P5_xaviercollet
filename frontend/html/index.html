@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Orinoco</title>
+		<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/styles.css" />
+		<script src="../../frontend/js/index.js" defer></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+			integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+			defer
+			crossorigin="anonymous"
+		></script>
+	</head>
+
+	<body>
+		<header class="topbar">
+			<img class="topbar__logo" src="/frontend/img/orinoco-logo.png" alt="Logo d'Orinoco" />
+		</header>
+		<a href="./index.html" class="text-decoration-none">
+			<div class="text-white text-center m-0">
+				<h1 class="display-4">Découvrez les meilleurs caméras</h1>
+				<p class="lead">Séléction</p>
+				<hr class="my-2 w-50 border-white" />
+			</div>
+		</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+			<ul class="navbar-nav mr-auto d-flex flex-row">
+				<li class="nav-item m-1">
+					<a class="navbar-brand" href="index.html">Camera Shop</a>
+				</li>
+				<li class="nav-item m-1">
+					<a id="basketPage" class="nav-link" href="basket.html">Panier</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="cameras d-flex flex-wrap justify-content-around"></div>
+	</body>
+</html>
