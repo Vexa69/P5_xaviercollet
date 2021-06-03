@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Orinoco</title>
+		<script src="../js/basket.js" defer></script>
+		<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/styles.css" />
+	</head>
+
+	<body>
+		<header class="topbar">
+			<img class="topbar__logo" src="/frontend/img/orinoco-logo.png" alt="Logo d'Orinoco" />
+		</header>
+		<a href="./index.html" class="text-decoration-none">
+			<div class="text-white text-center m-0">
+				<h1 class="display-4">Orinoco</h1>
+				<p class="lead">Découvrez les meilleurs caméras</p>
+				<hr class="my-2 w-50 border-white" />
+			</div>
+		</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+			<ul class="navbar-nav mr-auto d-flex flex-row">
+				<li class="nav-item m-1">
+					<a class="navbar-brand" href="index.html">Camera Shop</a>
+				</li>
+				<li class="nav-item active m-1">
+					<a id="basketPage" class="nav-link" href="basket.html">Panier</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div id="basket" class="d-flex flex-wrap justify-content-around"></div>
+		<div id="payment" class="card border-light text-center w-50 m-auto">
+			<h1 class="card-title">Paiement</h1>
+			<h2 id="total"></h2>
+			<p>Veuillez remplir les champs suivants pour pouvoir procéder au paiement :</p>
+			<form class="card-body">
+				<div class="form-group">
+					<label for="firstName">Prénom</label>
+					<input
+						type="text"
+						class="form-control"
+						id="firstName"
+						placeholder="Prénom"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="lastName">Nom</label>
+					<input
+						type="text"
+						class="form-control"
+						id="lastName"
+						placeholder="Nom"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="address">Adresse</label>
+					<input
+						type="text"
+						class="form-control"
+						id="address"
+						placeholder="Adresse"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="city">Ville</label>
+					<input
+						type="text"
+						class="form-control"
+						id="city"
+						placeholder="Ville"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="email">Adresse mail</label>
+					<input
+						type="email"
+						class="form-control"
+						id="email"
+						placeholder="Adresse mail"
+						required
+					/>
+				</div>
+			</form>
+			<a id="submitPayment" class="btn btn-success card-footer" role="button" type="submit"
+				>Envoyer</a
+			>
+		</div>
+	</body>
+</html>

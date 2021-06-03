@@ -26,7 +26,6 @@ function showCamera(data) {
 		selectLenses.appendChild(option);
 	}
 }
-
 function getCamera(id) {
 	fetch("http://localhost:3000/api/cameras/" + id)
 		.then(response => response.json())
