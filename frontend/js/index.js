@@ -8,7 +8,7 @@ function manageBasketDisplay() {
 }
 
 function getCamerasIndex() {
-	fetch("http://localhost:3000/api/cameras/") //appel api, callback, ... return une promesse
+	fetch("http://localhost:3000/api/cameras/") //appel api, callback
 		.then(response => {
 			//fonction anonyme prend pour parametre response et return response.json
 			return response.json();
@@ -32,7 +32,7 @@ function getOneCamera(camera) {
 		productPageLink = document.createElement("a"),
 		urlPage = "product.html?id=" + camera._id;
 
-	// Remplissage des éléments
+	// Remplissage
 	name.appendChild(document.createTextNode(camera.name));
 	image.src = camera.imageUrl;
 	price.appendChild(document.createTextNode((camera.price / 100).toLocaleString("en") + " $"));
@@ -40,7 +40,7 @@ function getOneCamera(camera) {
 	productPageLink.appendChild(document.createTextNode("Voir la page du produit"));
 	productPageLink.setAttribute("href", urlPage);
 
-	//Stylisation des éléments
+	//Stylisation
 	productPageLink.classList.add("btn", "btn-secondary");
 	productPageLink.setAttribute("role", "button");
 	cameraItem.classList.add("card", "border-light", "text-center", "w-25", "m-4");

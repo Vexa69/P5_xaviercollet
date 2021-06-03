@@ -26,6 +26,7 @@ function showCamera(data) {
 		selectLenses.appendChild(option);
 	}
 }
+
 function getCamera(id) {
 	fetch("http://localhost:3000/api/cameras/" + id)
 		.then(response => response.json())
@@ -79,3 +80,8 @@ function addToBasket(data) {
 	}
 	manageBasketDisplay();
 }
+
+let params = new URL(document.location).searchParams;
+let id = params.get("id");
+manageBasketDisplay();
+getCamera();

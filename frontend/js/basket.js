@@ -78,4 +78,27 @@ function getBasketItem(i) {
 	basketItem.appendChild(basketItemBody);
 	basketItem.appendChild(deleteItemButton);
 	basketItem.appendChild(productPageLink);
+
+	// Placement dans le ul
+
+	basket.appendChild(basketItem);
+}
+
+function basket() {
+	for (let i = 0; i < basketItems.length; i++) {
+		getBasketItem(i);
+	}
+	totalPrice();
+}
+
+function totalPrice() {
+	let total = 0;
+	for (let j = 0; j < basketItems.length; j++) {
+		total = total + basketItems[j].price * basketItems[j].selectedQuantity;
+	}
+	document
+		.querySelector("#total")
+		.appendChild(
+			document.createTextNode("total : " + (total / 100).toLocaleString("en") + "$")
+		);
 }
