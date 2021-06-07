@@ -45,7 +45,7 @@ function getCamera(id) {
 }
 
 function addToBasket(data) {
-	//Création du panier dans le localStorage s'il n'existe pas déjà
+	//Création du panier dans le localStorage
 	if (typeof localStorage.getItem("basket") !== "string") {
 		let basket = [];
 		localStorage.setItem("basket", JSON.stringify(basket));
@@ -84,4 +84,4 @@ function addToBasket(data) {
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 manageBasketDisplay();
-getCamera();
+getCamera(id);

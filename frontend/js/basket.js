@@ -18,7 +18,6 @@ function returnToHomePageIfUserEmptyTheBasket() {
 
 function getBasketItem(i) {
 	productsID.push(basketItems[i]._id);
-
 	// Eléments
 	let basket = document.querySelector("#basket"),
 		basketItem = document.createElement("div"),
@@ -101,4 +100,57 @@ function totalPrice() {
 		.appendChild(
 			document.createTextNode("total : " + (total / 100).toLocaleString("en") + "$")
 		);
+}
+
+function modifyQuantity() {
+	//selection du bouton et de la carte à laquelle ils appartiennent
+	let itemCard = event.target.parentNode.parentNode.parentNode;
+	//identifier l'item associé dans le local storage
+	let itemId = itemCard.getAttribute("data-id");
+	let itemLense = itemCard.getAttribute("data-lense");
+	let basketItemIndex;
+	for (let i = 0; i < basketItems.length; i++) {
+		if (itemId === basketItems[i]._id && itemLense === basketItems[i].selectedLense) {
+			basketItemIndex = i;
+		}
+	}
+	//modifier la quantité dans le local storage
+	basketItems[basketItemIndex].selectedQuantity = event.target.previousSibling.value;
+	localStorage.setItem("basket", JSON.stringify(basketItems));
+	window.location.reload(true);
+	alert("Quantité modifiée !");
+}
+
+function deleteItem() {
+	//Séléctionner le bouton puis la carte à laquelle il appartient
+	let itemCard = event.target.parentNode;
+	//Identifier l'item dans le local storage
+	let itemId = itemCard.getAttribute("data-id");
+	let itemLense = itemCard.getAttribute("data-lense");
+	let basketItemIndex;
+	for (let i = 0; i < basketItems.length; i++) {
+		if (itemId === basketItems[i]._id && itemLense === basketItems[i].selectedLense) {
+			basketItemIndex = i;
+		}
+	}
+	//Supprimer l'item dans le local storage
+	basketItems.splice(basketItemIndex, 1);
+	localStorage.setItem("basket", JSON.stringify(basketItems));
+	window.location.reload(true);
+	alert("Item supprimé !");
+	returnToHomePageIfUserEmptyTheBasket();
+}
+
+function checkIfFieldIsValid(input, regExp) {
+	return input.value.match(regExp) !== null;
+}
+
+function submitPayment() {
+	//si la fonction a déja été utilisée on réinitialise le formulaire
+	// suppression des div et is-valid ou is-invalid
+	let inputs = document.querySelectorAll("input");
+	for (let i = 0; i < inputs.length; i++) {
+		inputs[i].classList.remove("is-invalid");
+		inputs[i].classList.remove("is-valid");
+	}
 }
