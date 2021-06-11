@@ -7,7 +7,7 @@ function manageBasketDisplay() {
 	}
 }
 
-function getCamerasIndex() {
+function displayCamerasIndex() {
 	fetch("http://localhost:3000/api/cameras/") //appel api, callback
 		.then(response => {
 			//fonction anonyme prend pour parametre response et return response.json
@@ -35,7 +35,7 @@ function getOneCamera(camera) {
 	// Remplissage
 	name.appendChild(document.createTextNode(camera.name));
 	image.src = camera.imageUrl;
-	price.appendChild(document.createTextNode((camera.price / 100).toLocaleString("en") + " $"));
+	price.appendChild(document.createTextNode((camera.price / 100).toLocaleString("en") + " €"));
 	description.appendChild(document.createTextNode(camera.description));
 	productPageLink.appendChild(document.createTextNode("Voir la page du produit"));
 	productPageLink.setAttribute("href", urlPage);
@@ -62,4 +62,4 @@ function getOneCamera(camera) {
 }
 
 manageBasketDisplay();
-getCamerasIndex();
+displayCamerasIndex();

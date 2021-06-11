@@ -18,7 +18,7 @@ function showCamera(data) {
 	// Remplissage des éléments
 	name.appendChild(document.createTextNode(data.name));
 	image.src = data.imageUrl;
-	price.appendChild(document.createTextNode((data.price / 100).toLocaleString("en") + " $"));
+	price.appendChild(document.createTextNode((data.price / 100).toLocaleString("en") + " €"));
 	description.appendChild(document.createTextNode(data.description));
 	for (i = 0; i < data.lenses.length; i++) {
 		let option = document.createElement("option");
@@ -27,7 +27,7 @@ function showCamera(data) {
 	}
 }
 
-function getCamera(id) {
+function displayCamera(id) {
 	fetch("http://localhost:3000/api/cameras/" + id)
 		.then(response => response.json())
 		.then(data => {
@@ -84,4 +84,4 @@ function addToBasket(data) {
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 manageBasketDisplay();
-getCamera(id);
+displayCamera(id);

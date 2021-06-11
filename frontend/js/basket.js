@@ -16,7 +16,7 @@ function returnToHomePageIfUserEmptyTheBasket() {
 	}
 }
 
-function getBasketItem(i) {
+function displayBasketItem(i) {
 	productsID.push(basketItems[i]._id);
 	// Eléments
 	let basket = document.querySelector("#basket"),
@@ -36,14 +36,14 @@ function getBasketItem(i) {
 	// Remplissage
 	name.appendChild(document.createTextNode(basketItems[i].name));
 	image.src = basketItems[i].imageUrl;
-	productPageLink.appendChild(document.createTextNode("voir la page du produit"));
+	productPageLink.appendChild(document.createTextNode("Voir la page du produit"));
 	productPageLink.setAttribute("href", urlPage);
-	selectedLense.appendChild(document.createTextNode("modifier la quantité"));
+	modifyQuantityButton.appendChild(document.createTextNode("Valider la quantité"));
 	deleteItemButton.appendChild(document.createTextNode("Supprimer"));
 	price.appendChild(
 		document.createTextNode(
 			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("en") +
-				" $"
+				" €"
 		)
 	);
 
@@ -61,9 +61,9 @@ function getBasketItem(i) {
 	selectedQuantity.classList.add("form-control", "w-25");
 	selectedQuantity.setAttribute("value", basketItems[i].selectedQuantity);
 	modifyQuantityButton.classList.add("modifyQuantity", "btn", "btn-light", "w-75");
-	modifyQuantityButton.addEventListener("click", modifyQuantity, false);
+	modifyQuantityButton.addEventListener("click", modifyQuantity);
 	deleteItemButton.classList.add("deleteItem", "btn", "btn-danger", "m-3");
-	deleteItemButton.addEventListener("click", deleteItem, false);
+	deleteItemButton.addEventListener("click", deleteItem);
 
 	//Placement dans le li
 
@@ -85,7 +85,7 @@ function getBasketItem(i) {
 
 function basket() {
 	for (let i = 0; i < basketItems.length; i++) {
-		getBasketItem(i);
+		displayBasketItem(i);
 	}
 	totalPrice();
 }
@@ -98,7 +98,7 @@ function totalPrice() {
 	document
 		.querySelector("#total")
 		.appendChild(
-			document.createTextNode("total : " + (total / 100).toLocaleString("en") + "$")
+			document.createTextNode("total : " + (total / 100).toLocaleString("en") + "€")
 		);
 }
 
