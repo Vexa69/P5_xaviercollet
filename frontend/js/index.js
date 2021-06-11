@@ -30,7 +30,7 @@ function getOneCamera(camera) {
 		description = document.createElement("p"),
 		image = document.createElement("img"),
 		productPageLink = document.createElement("a"),
-		urlPage = "product.html?id=" + camera._id;
+		urlPage = "/frontend/html/product.html?id=" + camera._id;
 
 	// Remplissage
 	name.appendChild(document.createTextNode(camera.name));

@@ -12,7 +12,7 @@ function manageBasketDisplay() {
 
 function returnToHomePageIfUserEmptyTheBasket() {
 	if (localStorage.getItem("basket") === null || localStorage.getItem("basket") === "[]") {
-		window.location.href = "index.html";
+		window.location.href = "/index.html";
 	}
 }
 
