@@ -12,7 +12,7 @@ function manageBasketDisplay() {
 
 function returnToHomePageIfUserEmptyTheBasket() {
 	if (localStorage.getItem("basket") === null || localStorage.getItem("basket") === "[]") {
-		window.location.href = "/index.html";
+		window.location.href = "/frontend/html/index.html";
 	}
 }
 
@@ -250,3 +250,4 @@ function submitPayment() {
 manageBasketDisplay();
 basket();
 document.querySelector("#submitPayment").addEventListener("click", submitPayment, false);
+Element.setAttribute(value);

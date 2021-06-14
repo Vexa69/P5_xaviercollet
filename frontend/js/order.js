@@ -13,12 +13,12 @@ function manageBasketDisplay() {
 function basket() {
 	manageBasketDisplay();
 	for (let i = 0; i < basketItems.length; i++) {
-		getOneCamera(i);
+		displayOneCamera(i);
 	}
 	totalPrice();
 }
 
-function getOneCamera(i) {
+function displayOneCamera(i) {
 	productsID.push(basketItems[i]._id);
 	// Création des éléments
 	let basket = document.querySelector("#basket"),
