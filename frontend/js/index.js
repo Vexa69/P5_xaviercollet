@@ -15,12 +15,12 @@ function displayCamerasIndex() {
 		})
 		.then(function (data) {
 			for (let i = 0; i < data.length; i++) {
-				getOneCamera(data[i]);
+				displayOneCamera(data[i]);
 			}
 		});
 }
 
-function getOneCamera(camera) {
+function displayOneCamera(camera) {
 	// Création des éléments
 	let cameras = document.querySelector(".cameras"),
 		cameraItem = document.createElement("div"),
@@ -30,7 +30,7 @@ function getOneCamera(camera) {
 		description = document.createElement("p"),
 		image = document.createElement("img"),
 		productPageLink = document.createElement("a"),
-		urlPage = "/frontend/html/product.html?id=" + camera._id;
+		urlPage = "../html/product.html?id=" + camera._id;
 
 	// Remplissage
 	name.appendChild(document.createTextNode(camera.name));

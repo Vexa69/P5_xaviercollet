@@ -40,7 +40,7 @@ function displayOneCamera(i) {
 	price.appendChild(
 		document.createTextNode(
 			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("en") +
-				" $"
+				" €"
 		)
 	);
 

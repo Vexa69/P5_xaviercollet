@@ -34,13 +34,9 @@ function displayCamera(id) {
 			showCamera(data);
 			// Ecouter les clics sur le bouton addToBasket
 			let addItemToBasket = document.querySelector("#addToBasket");
-			addItemToBasket.addEventListener(
-				"click",
-				function () {
-					addToBasket(data);
-				},
-				false
-			);
+			addItemToBasket.addEventListener("click", function () {
+				addToBasket(data);
+			});
 		});
 }
 

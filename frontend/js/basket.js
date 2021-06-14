@@ -12,7 +12,7 @@ function manageBasketDisplay() {
 
 function returnToHomePageIfUserEmptyTheBasket() {
 	if (localStorage.getItem("basket") === null || localStorage.getItem("basket") === "[]") {
-		window.location.href = "/frontend/html/index.html";
+		window.location.href = "../html/index.html";
 	}
 }
 
@@ -93,7 +93,7 @@ function basket() {
 function totalPrice() {
 	let total = 0;
 	for (let j = 0; j < basketItems.length; j++) {
-		total = total + basketItems[j].price * basketItems[j].selectedQuantity;
+		total += basketItems[j].price * basketItems[j].selectedQuantity;
 	}
 	document
 		.querySelector("#total")
@@ -117,7 +117,6 @@ function modifyQuantity() {
 	//modifier la quantité dans le local storage
 	basketItems[basketItemIndex].selectedQuantity = event.target.previousSibling.value;
 	localStorage.setItem("basket", JSON.stringify(basketItems));
-	window.location.reload(true);
 	alert("Quantité modifiée !");
 }
 
@@ -136,7 +135,6 @@ function deleteItem() {
 	//Supprimer l'item dans le local storage
 	basketItems.splice(basketItemIndex, 1);
 	localStorage.setItem("basket", JSON.stringify(basketItems));
-	window.location.reload(true);
 	alert("Item supprimé !");
 	returnToHomePageIfUserEmptyTheBasket();
 }
@@ -250,4 +248,3 @@ function submitPayment() {
 manageBasketDisplay();
 basket();
 document.querySelector("#submitPayment").addEventListener("click", submitPayment, false);
-Element.setAttribute(value);
