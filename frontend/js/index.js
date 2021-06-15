@@ -35,7 +35,7 @@ function displayOneCamera(camera) {
 	// Remplissage
 	name.appendChild(document.createTextNode(camera.name));
 	image.src = camera.imageUrl;
-	price.appendChild(document.createTextNode((camera.price / 100).toLocaleString("en") + " €"));
+	price.appendChild(document.createTextNode((camera.price / 100).toLocaleString("fr") + " €"));
 	description.appendChild(document.createTextNode(camera.description));
 	productPageLink.appendChild(document.createTextNode("Voir la page du produit"));
 	productPageLink.setAttribute("href", urlPage);

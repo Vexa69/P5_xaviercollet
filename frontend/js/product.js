@@ -18,7 +18,7 @@ function showCamera(data) {
 	// Remplissage des éléments
 	name.appendChild(document.createTextNode(data.name));
 	image.src = data.imageUrl;
-	price.appendChild(document.createTextNode((data.price / 100).toLocaleString("en") + " €"));
+	price.appendChild(document.createTextNode((data.price / 100).toLocaleString("fr") + " €"));
 	description.appendChild(document.createTextNode(data.description));
 	for (i = 0; i < data.lenses.length; i++) {
 		let option = document.createElement("option");

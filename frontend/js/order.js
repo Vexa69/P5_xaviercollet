@@ -39,7 +39,7 @@ function displayOneCamera(i) {
 	selectedLense.appendChild(document.createTextNode(basketItems[i].selectedLense));
 	price.appendChild(
 		document.createTextNode(
-			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("en") +
+			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("fr") +
 				" €"
 		)
 	);
@@ -71,7 +71,7 @@ function totalPrice() {
 	document
 		.querySelector("#total")
 		.appendChild(
-			document.createTextNode("Total : " + (total / 100).toLocaleString("en") + " €")
+			document.createTextNode("Total : " + (total / 100).toLocaleString("fr") + " €")
 		);
 }
 

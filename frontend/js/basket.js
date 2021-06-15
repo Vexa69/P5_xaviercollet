@@ -42,7 +42,7 @@ function displayBasketItem(i) {
 	deleteItemButton.appendChild(document.createTextNode("Supprimer"));
 	price.appendChild(
 		document.createTextNode(
-			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("en") +
+			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("fr") +
 				" €"
 		)
 	);
@@ -60,6 +60,7 @@ function displayBasketItem(i) {
 	quantity.classList.add("d-flex", "flex-row");
 	selectedQuantity.classList.add("form-control", "w-25");
 	selectedQuantity.setAttribute("value", basketItems[i].selectedQuantity);
+	selectedQuantity.setAttribute("type", "number");
 	modifyQuantityButton.classList.add("modifyQuantity", "btn", "btn-light", "w-75");
 	modifyQuantityButton.addEventListener("click", modifyQuantity);
 	deleteItemButton.classList.add("deleteItem", "btn", "btn-danger", "m-3");
@@ -84,7 +85,7 @@ function displayBasketItem(i) {
 }
 
 function basket() {
-	for (let i = 0; i < basketItems.length; i++) {
+	for (i = 0; i < basketItems.length; i++) {
 		displayBasketItem(i);
 	}
 	totalPrice();
@@ -92,13 +93,13 @@ function basket() {
 
 function totalPrice() {
 	let total = 0;
-	for (let j = 0; j < basketItems.length; j++) {
+	for (j = 0; j < basketItems.length; j++) {
 		total += basketItems[j].price * basketItems[j].selectedQuantity;
 	}
 	document
 		.querySelector("#total")
 		.appendChild(
-			document.createTextNode("total : " + (total / 100).toLocaleString("en") + "€")
+			document.createTextNode("total : " + (total / 100).toLocaleString("fr") + "€")
 		);
 }
 
