@@ -76,7 +76,6 @@ function totalPrice() {
 }
 
 basket();
-
 let orderId = localStorage.getItem("orderId");
 document.querySelector("strong").appendChild(document.createTextNode(orderId));
 localStorage.removeItem("basket");

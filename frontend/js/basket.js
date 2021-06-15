@@ -136,7 +136,8 @@ function deleteItem() {
 	//Supprimer l'item dans le local storage
 	basketItems.splice(basketItemIndex, 1);
 	localStorage.setItem("basket", JSON.stringify(basketItems));
-	alert("Item supprimé !");
+	alert("Produit supprimé !");
+	document.location.assign("/frontend/html/basket.html");
 	returnToHomePageIfUserEmptyTheBasket();
 }
 

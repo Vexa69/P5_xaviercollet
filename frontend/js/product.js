@@ -75,6 +75,7 @@ function addToBasket(data) {
 		localStorage.setItem("basket", JSON.stringify(basket));
 	}
 	manageBasketDisplay();
+	window.alert("Votre produit a été ajouter au panier !");
 }
 
 let params = new URL(document.location).searchParams;
