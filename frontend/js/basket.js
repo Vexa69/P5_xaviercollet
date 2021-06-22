@@ -40,12 +40,7 @@ function displayBasketItem(i) {
 	productPageLink.setAttribute("href", urlPage);
 	modifyQuantityButton.appendChild(document.createTextNode("Valider la quantité"));
 	deleteItemButton.appendChild(document.createTextNode("Supprimer"));
-	price.appendChild(
-		document.createTextNode(
-			((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("fr") +
-				" €"
-		)
-	);
+	price.appendChild(document.createTextNode(((basketItems[i].price * basketItems[i].selectedQuantity) / 100).toLocaleString("fr") + " €"));
 
 	// Stylisation
 	productPageLink.classList.add("btn", "btn-secondary");
@@ -96,11 +91,7 @@ function totalPrice() {
 	for (j = 0; j < basketItems.length; j++) {
 		total += basketItems[j].price * basketItems[j].selectedQuantity;
 	}
-	document
-		.querySelector("#total")
-		.appendChild(
-			document.createTextNode("total : " + (total / 100).toLocaleString("fr") + "€")
-		);
+	document.querySelector("#total").appendChild(document.createTextNode("total : " + (total / 100).toLocaleString("fr") + "€"));
 }
 
 function modifyQuantity() {
@@ -118,6 +109,7 @@ function modifyQuantity() {
 	//modifier la quantité dans le local storage
 	basketItems[basketItemIndex].selectedQuantity = event.target.previousSibling.value;
 	localStorage.setItem("basket", JSON.stringify(basketItems));
+	location.reload();
 	alert("Quantité modifiée !");
 }
 
@@ -179,13 +171,7 @@ function submitPayment() {
 
 	//Alerter l'utilisateur s'il a mal rempli le formulaire
 	let fields = [firstName, lastName, address, city, email],
-		fieldsValidity = [
-			isfirstNameValid,
-			isLastNameValid,
-			isAddressValid,
-			isCityValid,
-			isEmailValid
-		],
+		fieldsValidity = [isfirstNameValid, isLastNameValid, isAddressValid, isCityValid, isEmailValid],
 		isAFieldInvalid = false;
 
 	for (let i = 0; i < fields.length; i++) {
